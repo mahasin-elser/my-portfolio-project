@@ -1,3 +1,4 @@
+/* إعدادات عامة */
 * {
     margin: 0;
     padding: 0;
@@ -9,8 +10,10 @@ body {
     background-color: #0f172a;
     color: #f8fafc;
     line-height: 1.6;
+    scroll-behavior: smooth; /* تمرير ناعم */
 }
 
+/* القائمة العلوية */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -20,6 +23,13 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* كلاس يتضاف لما ننزل بالصفحة */
+.navbar.scrolled {
+    background-color: #0f172a;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .logo { font-size: 24px; font-weight: 700; }
@@ -35,6 +45,7 @@ body {
 .nav-links a {
     text-decoration: none;
     color: #f8fafc;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 
@@ -48,8 +59,26 @@ body {
     font-weight: 700 !important;
 }
 
+.btn-contact:hover { background-color: #f59e0b; }
+
+/* زرار الموبايل (مخفي افتراضياً) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #f8fafc;
+    transition: 0.3s;
+}
+
+/* القسم الرئيسي (Hero) */
 .hero-section {
-    height: 80vh;
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +87,8 @@ body {
     background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
 }
 
-.hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero-content { max-width: 800px; }
+.hero-content h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
 .highlight { color: #fbbf24; }
 .hero-content p { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 30px; }
 
@@ -70,13 +100,19 @@ body {
     text-decoration: none;
     font-weight: 700;
     border-radius: 5px;
-    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.btn-primary:hover { transform: translateY(-3px); }
+.btn-primary:hover {
+    background-color: #f59e0b;
+    transform: translateY(-3px);
+}
 
+/* قسم الخدمات */
 .services-section {
     padding: 80px 5%;
+    background-color: #0f172a;
     text-align: center;
 }
 
@@ -84,6 +120,17 @@ body {
     font-size: 2.5rem;
     margin-bottom: 50px;
     color: #fbbf24;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #fbbf24;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 .services-grid {
@@ -98,59 +145,40 @@ body {
     background-color: #1e293b;
     padding: 40px 20px;
     border-radius: 10px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #334155;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     border-color: #fbbf24;
 }
 
 .service-card .icon { font-size: 3rem; margin-bottom: 20px; }
-.service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-.service-card p { color: #cbd5e1; }
-/* تنسيق زر القائمة (المخفي في الكمبيوتر) */
-.hamburger {
-    display: none; /* مخفي في الشاشات الكبيرة */
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
+.service-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #f8fafc; }
+.service-card p { color: #cbd5e1; font-size: 1rem; line-height: 1.8; }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #fbbf24;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-/* --- التصميم المتجاوب (للموبايل) --- */
+/* التصميم المتجاوب للموبايل */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex; /* يظهر في الموبايل */
-    }
+    .menu-toggle { display: flex; } /* نظهر الزرار */
 
     .nav-links {
         position: absolute;
-        top: 70px;
-        right: -100%; /* مخفية خارج الشاشة */
-        flex-direction: column;
-        background-color: #1e293b;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        transition: 0.3s ease-in-out;
-        border-bottom: 2px solid #fbbf24;
-    }
-
-    /* الكلاس ده هو اللي الجافاسكريبت هيضيفه عشان تفتح القائمة */
-    .nav-links.active {
+        top: 100%;
         right: 0;
+        width: 100%;
+        background-color: #1e293b;
+        flex-direction: column;
+        padding: 20px;
+        display: none; /* مخفية في البداية */
+        border-top: 1px solid #334155;
     }
 
-    .hero-content h1 {
-        font-size: 2rem; /* تصغير الخط في الموبايل */
+    .nav-links.active {
+        display: flex; /* تظهر لما نضغط على الزرار */
     }
+
+    .hero-content h1 { font-size: 2rem; }
+    .section-title { font-size: 2rem; }
 }

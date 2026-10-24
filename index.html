@@ -8,43 +8,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- القائمة العلوية -->
     <nav class="navbar">
         <div class="logo">Tech<span>Pro</span></div>
+        
+        <!-- زرار الموبايل (الـ 3 شرط) -->
+        <div class="menu-toggle" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- روابط القائمة -->
         <ul class="nav-links">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">خدماتنا</a></li>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#services">خدماتنا</a></li>
             <li><a href="#">من نحن</a></li>
             <li><a href="#" class="btn-contact">تواصل معنا</a></li>
         </ul>
-                <!-- زر القائمة للموبايل -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </nav>
 
-    <header class="hero-section">
+    <!-- القسم الرئيسي -->
+    <header class="hero-section" id="home">
         <div class="hero-content">
             <h1>نبني لك <span class="highlight">مستقبل رقمي</span> أفضل</h1>
             <p>نحن نقدم حلولاً برمجية مبتكرة لتطوير أعمالك وزيادة أرباحك باستخدام أحدث التقنيات.</p>
-            <a href="#" class="btn-primary">ابدأ مشروعك الآن</a>
+            <a href="#services" class="btn-primary">ابدأ مشروعك الآن</a>
         </div>
     </header>
 
-    <section class="services-section">
+    <!-- قسم الخدمات -->
+    <section class="services-section" id="services">
         <h2 class="section-title">خدماتنا</h2>
         <div class="services-grid">
+            <!-- الخدمة الأولى -->
             <div class="service-card">
                 <div class="icon">💻</div>
                 <h3>تطوير المواقع</h3>
                 <p>نبني لك مواقع سريعة ومتجاوبة مع جميع الأجهزة باستخدام أحدث التقنيات.</p>
             </div>
+            <!-- الخدمة الثانية -->
             <div class="service-card">
                 <div class="icon">📱</div>
                 <h3>تطبيقات الجوال</h3>
                 <p>نصمم ونطور تطبيقات هجينة تعمل على أندرويد و iOS بكفاءة عالية.</p>
             </div>
+            <!-- الخدمة الثالثة -->
             <div class="service-card">
                 <div class="icon">🎨</div>
                 <h3>تصميم واجهات المستخدم</h3>
