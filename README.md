@@ -4,6 +4,7 @@ A modern, fully responsive landing page for a tech company, built from scratch u
 
 ## 📸 Project Screenshots
 
+
 ### Main View
 ![Main Preview](./preview.png)
 
